@@ -4,6 +4,7 @@ import { IonicModule, Platform, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PlatformMock, StatusBarMock, SplashScreenMock, NavControllerMock } from 'ionic-mocks';
+import { inject } from '../../../node_modules/@angular/core/src/render3';
 
 describe('HomePage', () => {
     let homepage;
@@ -48,4 +49,17 @@ describe('HomePage', () => {
     it('should have user array default values', () => {
         expect(homepage.user).toEqual({ distance: 1000, age: 20 });
     });
+
+    it('calculate function should call person provider doAssessment function', inject([PersonProvider], person => {
+            homepage.user = { age: 25, gender: 'female', distance: 2500 };
+            spyOn(person, 'doAssessment').and.returnValue('Above average');
+
+            homepage.calculate();
+
+            expect(person.doAssessment).toHaveBeenCalled();
+            expect(person.doAssessment).toHaveBeenCalledWith(2500);
+            expect(person.age).toEqual(25);
+            expect(person.gender).toEqual('female')
+        }
+    ));
 });
