@@ -34,7 +34,7 @@ describe('HomePage', () => {
     });
 
     it('should have user default values', () => {
-        expect(homepage.user).toEqual({ distance: 1000, age: 20})
+        expect(homepage.user).toEqual({ distance: 1000, age: 20 })
     });
 
     it('should have calculate function', () => {
@@ -45,7 +45,7 @@ describe('HomePage', () => {
         expect(homepage.calculate).toHaveBeenCalled();
     });
 
-    it('should have user array', () => {
-        expect(homepage.user).toEqual({})
+    it('should have user array default values', () => {
+        expect(homepage.user).toEqual({ distance: 1000, age: 20 });
     });
 });
