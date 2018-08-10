@@ -71,7 +71,7 @@ export class MyApp {
         {
           text: 'Cancel',
           handler: data => {
-            console.log('Cancel cllicked');
+            console.log('Cancel clicked');
           }
         },
         {
@@ -89,9 +89,9 @@ export class MyApp {
     this._tokenService
       .signIn(credentials)
         .subscribe(
-          res => (this.currentUser = res.json().data),
-          err => console.error('error')
-        );
+         res => (this.currentUser = res.json().data),
+         err => console.error('error')
+      );
   }
 
   logout() {
