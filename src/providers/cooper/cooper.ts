@@ -75,7 +75,7 @@ export class CooperProvider {
     ];
 
     let ratingIndex: number;
-
+    debugger;
     distanceRanges.forEach((dRange, index) => {
       if (
         (dRange.match() && distance >= parseInt(dRange.slice(1), 10)) ||
