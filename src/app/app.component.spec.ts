@@ -50,4 +50,15 @@ describe('AppComponent', () => {
         expect(component).toBeTruthy();
         expect(component instanceof MyApp).toEqual(true);
     });
+
+    it('login method', inject([Angular2TokenService, MockBackend], (tokenService, mockBackend) => {
+
+        mockBackend.connections.subscribe(
+            c => {
+                
+            }
+        );
+
+        component.logout();
+    }))
 })
